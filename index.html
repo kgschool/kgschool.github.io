@@ -1,0 +1,1789 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>গোবিন্দগঞ্জ কেজি স্কুল</title>
+    <style>
+        /* ==================== Google Font ==================== */
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            font-family: 'Baloo 2', 'Segoe UI', cursive, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ==================== Floating Shapes ==================== */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+            border-radius: 50%;
+            animation: floatUp 15s infinite linear;
+        }
+
+        .shape:nth-child(1) { width: 120px; height: 120px; background: #ff6b6b; left: 5%; animation-delay: 0s; animation-duration: 18s; }
+        .shape:nth-child(2) { width: 80px; height: 80px; background: #feca57; right: 10%; animation-delay: 2s; animation-duration: 15s; }
+        .shape:nth-child(3) { width: 100px; height: 100px; background: #48dbfb; left: 20%; top: 40%; animation-delay: 4s; animation-duration: 20s; }
+        .shape:nth-child(4) { width: 60px; height: 60px; background: #ff9ff3; right: 20%; top: 60%; animation-delay: 1s; animation-duration: 16s; }
+        .shape:nth-child(5) { width: 90px; height: 90px; background: #54a0ff; left: 50%; top: 70%; animation-delay: 3s; animation-duration: 22s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0.1; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-20vh) scale(1.5) rotate(720deg); opacity: 0; }
+        }
+
+        /* ==================== Login Container ==================== */
+        .login-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 440px;
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            margin: auto;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+            60% { transform: scale(1.05) rotate(2deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-radius: 40px 40px 30px 30px;
+            padding: 35px 30px 40px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .login-container::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .login-container::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        .login-container::-webkit-scrollbar-thumb {
+            background: #ff6b6b;
+            border-radius: 10px;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .school-icon {
+            font-size: 56px;
+            display: inline-block;
+            animation: wiggle 3s ease-in-out infinite;
+            filter: drop-shadow(0 8px 20px rgba(255, 107, 107, 0.3));
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.05); }
+        }
+
+        .logo-section h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #2d3436;
+            margin: 8px 0 2px;
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: colorShift 4s ease infinite;
+        }
+
+        @keyframes colorShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .logo-section p {
+            font-size: 16px;
+            color: #636e72;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            -webkit-text-fill-color: #636e72;
+        }
+
+        .logo-section .sub-text {
+            font-size: 13px;
+            color: #b2bec3;
+            font-weight: 400;
+            margin-top: 2px;
+            -webkit-text-fill-color: #b2bec3;
+        }
+
+        .deco-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            border-radius: 10px;
+            margin: 12px auto 20px;
+            animation: linePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes linePulse {
+            0%, 100% { width: 80px; opacity: 1; }
+            50% { width: 120px; opacity: 0.6; }
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label .emoji {
+            font-size: 22px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 18px;
+            font-family: 'Baloo 2', cursive;
+            border: 3px solid #dfe6e9;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            color: #2d3436;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 6px rgba(255, 107, 107, 0.15);
+            background: white;
+            transform: scale(1.01);
+        }
+
+        .form-group input::placeholder {
+            color: #b2bec3;
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 55px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .toggle-password:hover {
+            background: rgba(0, 0, 0, 0.05);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 22px;
+            font-weight: 800;
+            font-family: 'Baloo 2', cursive;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.35);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .login-btn:active {
+            transform: translateY(0px) scale(0.98);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .login-btn .btn-shine {
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(25deg);
+            transition: 0.6s;
+        }
+
+        .login-btn:hover .btn-shine {
+            left: 120%;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #dfe6e9;
+            border-top: 4px solid #ff6b6b;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-spinner p {
+            color: #636e72;
+            font-size: 16px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            text-align: center;
+            font-size: 16px;
+            min-height: 30px;
+            margin-top: 10px;
+            font-weight: 600;
+            background: rgba(231, 76, 60, 0.08);
+            padding: 8px 12px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .error-msg.success {
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.08);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 2px dashed rgba(0, 0, 0, 0.06);
+        }
+
+        .login-footer .school-name {
+            font-size: 14px;
+            color: #b2bec3;
+            font-weight: 600;
+        }
+
+        .login-footer .school-name span {
+            color: #ff6b6b;
+        }
+
+        /* ==================== Dashboard Common ==================== */
+        .hidden { display: none !important; }
+
+        .dashboard-header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .dashboard-header h2 { font-size: 22px; }
+        .dashboard-header .user-info { font-size: 14px; opacity: 0.8; }
+        .logout-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .logout-btn:hover { background: #c0392b; transform: scale(1.05); }
+        .container { 
+            max-width: 1400px; 
+            margin: 30px auto; 
+            padding: 0 20px 100px; 
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .section-title { margin-bottom: 25px; color: #2c3e50; font-size: 24px; }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+        .card h3 { color: #2c3e50; margin-bottom: 15px; font-size: 18px; }
+        .stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { color: #7f8c8d; font-size: 14px; }
+        .stat-value { color: #2c3e50; font-weight: bold; font-size: 16px; }
+        .stat-value.highlight { color: #667eea; font-size: 18px; }
+
+        .actions-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        .actions-section h3 { color: #2c3e50; margin-bottom: 20px; }
+        .action-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .action-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            color: white;
+        }
+        .action-btn.primary { background: #3498db; }
+        .action-btn.primary:hover { background: #2980b9; transform: translateY(-2px); }
+        .action-btn.success { background: #2ecc71; }
+        .action-btn.success:hover { background: #27ae60; transform: translateY(-2px); }
+        .action-btn.warning { background: #f39c12; }
+        .action-btn.warning:hover { background: #e67e22; transform: translateY(-2px); }
+        .action-btn.danger { background: #e74c3c; }
+        .action-btn.danger:hover { background: #c0392b; transform: translateY(-2px); }
+        .action-btn.purple { background: #9b59b6; }
+        .action-btn.purple:hover { background: #8e44ad; transform: translateY(-2px); }
+        .action-btn.pink { background: #e84393; }
+        .action-btn.pink:hover { background: #d63384; transform: translateY(-2px); }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .class-card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+        }
+        .class-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #16a085;
+        }
+        .class-card .icon { font-size: 32px; margin-bottom: 10px; }
+        .class-card .name { font-size: 18px; font-weight: bold; color: #2c3e50; }
+        .class-card .count { font-size: 14px; color: #7f8c8d; margin-top: 5px; }
+
+        /* ==================== Modal ==================== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .modal-content {
+            background: white;
+            margin: 30px auto;
+            padding: 25px;
+            width: 95%;
+            max-width: 1200px;
+            border-radius: 15px;
+            position: relative;
+            animation: modalSlide 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #16a085;
+            border-radius: 10px;
+        }
+
+        @keyframes modalSlide { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            padding-bottom: 10px;
+        }
+        .modal-header h2 { color: #2c3e50; }
+        .close-modal {
+            font-size: 28px;
+            cursor: pointer;
+            color: #e74c3c;
+            transition: 0.3s;
+            background: none;
+            border: none;
+            padding: 0 10px;
+        }
+        .close-modal:hover { transform: scale(1.2); }
+        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 600px;
+        }
+        .student-table th {
+            background: #16a085;
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+        .student-table td { padding: 10px; border-bottom: 1px solid #eee; vertical-align: middle; }
+        .student-table tr:hover { background: #f8f9fa; }
+        .student-table input {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            min-width: 60px;
+            transition: 0.3s;
+        }
+        .student-table input:focus {
+            border-color: #16a085;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.1);
+        }
+        .student-table input[type="number"] { width: 70px; }
+        .photo-preview { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; display: block; }
+        .photo-input { font-size: 11px; padding: 4px; width: 100%; max-width: 120px; }
+
+        .action-btn-small {
+            padding: 5px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+            color: white;
+            margin: 2px;
+            white-space: nowrap;
+        }
+        .action-btn-small.edit { background: #3498db; }
+        .action-btn-small.edit:hover { background: #2980b9; }
+        .action-btn-small.delete { background: #e74c3c; }
+        .action-btn-small.delete:hover { background: #c0392b; }
+        .action-btn-small.save { background: #2ecc71; }
+        .action-btn-small.save:hover { background: #27ae60; }
+
+        .subject-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 60px;
+            z-index: 5;
+        }
+        .subject-section h4 { color: #2c3e50; margin-bottom: 10px; }
+        .subject-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin: 3px;
+            font-size: 13px;
+        }
+        .subject-tag .remove-subject {
+            cursor: pointer;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        .subject-tag .remove-subject:hover { color: #e74c3c; }
+        .add-subject-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .add-subject-input input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            min-width: 150px;
+        }
+        .add-subject-input button {
+            padding: 8px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .add-subject-input button:hover { background: #5a6fd6; }
+
+        /* ==================== Student Dashboard ==================== */
+        .student-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .student-container { max-width: 800px; margin: 40px auto; padding: 0 20px 100px; }
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            font-size: 22px;
+        }
+        .student-name { font-size: 28px; color: #2c3e50; font-weight: bold; margin-bottom: 10px; }
+        .student-details { color: #7f8c8d; margin-bottom: 20px; }
+        .attendance-big {
+            font-size: 48px;
+            color: #27ae60;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #ecf0f1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #27ae60;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .result-item .subject { font-weight: bold; color: #2c3e50; }
+        .result-item .marks { color: #e67e22; font-weight: bold; font-size: 18px; }
+        .grade-box {
+            font-size: 36px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+        .grade-Aplus { background: #27ae60; color: white; }
+        .grade-A { background: #2ecc71; color: white; }
+        .grade-B { background: #3498db; color: white; }
+        .grade-C { background: #f39c12; color: white; }
+        .grade-F { background: #e74c3c; color: white; }
+
+        /* ==================== Toast ==================== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #27ae60;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1001;
+            animation: slideIn 0.5s ease;
+            max-width: 400px;
+        }
+        .toast.error { background: #e74c3c; }
+        .toast.info { background: #3498db; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        .loading-card {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+        .loading-card .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #16a085;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        .empty-state { text-align: center; padding: 40px; color: #7f8c8d; grid-column: 1/-1; }
+        .empty-state .icon { font-size: 48px; margin-bottom: 15px; }
+
+        /* ==================== Scrollbar Style ==================== */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a6fd6;
+        }
+
+        /* ==================== Responsive ==================== */
+        @media (max-width: 768px) {
+            .dashboard-header { flex-direction: column; text-align: center; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .class-grid { grid-template-columns: repeat(2, 1fr); }
+            .modal-content { padding: 15px; margin: 10px; max-height: 95vh; }
+            .student-table { font-size: 12px; min-width: 500px; }
+            .student-table th, .student-table td { padding: 6px; }
+            .student-table input { font-size: 12px; min-width: 50px; }
+            .student-table input[type="number"] { width: 55px; }
+            .action-buttons { flex-direction: column; }
+            .action-btn { width: 100%; text-align: center; }
+            .login-container { padding: 25px; max-height: 95vh; }
+            .add-subject-input { flex-direction: column; }
+            .login-wrapper { max-width: 100%; }
+            .container { padding: 0 15px 80px; }
+            .student-container { padding: 0 15px 80px; }
+        }
+
+        @media (max-width: 480px) {
+            .login-container { padding: 20px 15px 25px; border-radius: 25px; }
+            .school-icon { font-size: 44px; }
+            .logo-section h1 { font-size: 22px; }
+            .logo-section p { font-size: 14px; }
+            .form-group input { padding: 12px 16px; font-size: 16px; border-radius: 14px; }
+            .login-btn { padding: 14px; font-size: 20px; border-radius: 16px; }
+            .form-group label { font-size: 15px; }
+            .form-group label .emoji { font-size: 18px; }
+            .deco-line { width: 60px; height: 3px; }
+            .toggle-password { font-size: 20px; right: 12px; }
+            .error-msg { font-size: 14px; padding: 6px 10px; }
+            .class-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .class-card { padding: 15px 10px; }
+            .class-card .name { font-size: 15px; }
+            .student-table { min-width: 400px; }
+        }
+
+        @media (max-width: 380px) {
+            .class-grid { grid-template-columns: 1fr 1fr; }
+            .student-table { min-width: 350px; }
+            .student-table input[type="number"] { width: 45px; }
+            .action-btn-small { font-size: 10px; padding: 4px 8px; }
+        }
+
+        /* ==================== Landscape Mode Fix ==================== */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .login-container { max-height: 95vh; padding: 20px; }
+            .login-container .logo-section { margin-bottom: 15px; }
+            .login-container .school-icon { font-size: 36px; }
+            .login-container .logo-section h1 { font-size: 20px; }
+            .login-container .form-group { margin-bottom: 12px; }
+            .login-container .form-group input { padding: 10px 14px; font-size: 15px; }
+            .login-container .login-btn { padding: 12px; font-size: 18px; }
+            .login-container .demo-info { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== TOAST ==================== -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ==================== PAGE: LOGIN ==================== -->
+    <div id="loginPage">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="login-wrapper">
+            <div class="login-container">
+                <div class="logo-section">
+                    <div class="school-icon">🏫</div>
+                    <h1>গোবিন্দগঞ্জ কিন্ডারগার্টেন</h1>
+                    <p>🎈 কেজি স্কুল ম্যানেজমেন্ট 🎈</p>
+                    <div class="sub-text">✨ শিশুদের প্রিয় স্কুল ✨</div>
+                    <div class="deco-line"></div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="emoji">👦</span> আমার আইডি</label>
+                    <input type="text" id="loginUserId" placeholder="এখানে আপনার আইডি দিন" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="emoji">🔐</span> আমার পাসওয়ার্ড</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="loginPassword" placeholder="পাসওয়ার্ড দিন" onkeypress="if(event.key==='Enter') login()">
+                        <button class="toggle-password" onclick="togglePassword()" type="button" aria-label="পাসওয়ার্ড দেখুন">👁️</button>
+                    </div>
+                </div>
+
+                <button class="login-btn" id="loginBtn" onclick="login()">
+                    <span class="btn-shine"></span>
+                    🚀 লগইন করুন
+                </button>
+
+                <div class="loading-spinner" id="loginSpinner">
+                    <div class="spinner"></div>
+                    <p>⏳ একটু অপেক্ষা করুন...</p>
+                </div>
+
+                <div class="error-msg" id="loginError"></div>
+
+                <div class="login-footer">
+                    <div class="school-name">❤️ <span>গোবিন্দগঞ্জ</span> কিন্ডারগার্টেন কেজি স্কুল ❤️</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE: ADMIN DASHBOARD ==================== -->
+    <div id="adminPage" class="hidden">
+        <div class="dashboard-header">
+            <div>
+                <h2>👑 এডমিন ড্যাশবোর্ড</h2>
+                <div class="user-info" id="adminUserInfo">লোড হচ্ছে...</div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="action-btn pink" onclick="showChangePassword()" style="padding:8px 20px; font-size:14px;">🔑 পাস চেঞ্জ</button>
+                <button class="logout-btn" onclick="logout()">🚪 লগআউট</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3 class="section-title">📊 ক্লাস সমূহের সারাংশ</h3>
+            <div id="summaryGrid" class="summary-grid">
+                <div class="loading-card"><div class="spinner"></div><p>ডাটা লোড হচ্ছে...</p></div>
+            </div>
+            <div class="actions-section">
+                <h3>⚙️ এডমিন কন্ট্রোল প্যানেল</h3>
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="showAddStudentModal()">➕ নতুন শিক্ষার্থী যোগ</button>
+                    <button class="action-btn success" onclick="showSubjectManager()">📚 সাবজেক্ট ম্যানেজ</button>
+                    <button class="action-btn warning" onclick="generateReport()">📊 রিপোর্ট জেনারেট</button>
+                    <button class="action-btn purple" onclick="exportData()">📥 ডাটা এক্সপোর্ট</button>
+                    <button class="action-btn primary" onclick="refreshAdminData()">🔄 রিফ্রেশ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE: OPERATOR DASHBOARD ==================== -->
+    <div id="operatorPage" class="hidden">
+        <div class="dashboard-header" style="background:#16a085;">
+            <div>
+                <h2>📊 ডাটা অপারেটর ড্যাশবোর্ড</h2>
+                <div class="user-info" id="operatorUserInfo">লোড হচ্ছে...</div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="action-btn pink" onclick="showChangePassword()" style="padding:8px 20px; font-size:14px;">🔑 পাস চেঞ্জ</button>
+                <button class="logout-btn" onclick="logout()">🚪 লগআউট</button>
+            </div>
+        </div>
+        <div class="container">
+            <h3 class="section-title">📊 ক্লাস সমূহের সারাংশ</h3>
+            <div id="operatorSummaryGrid" class="summary-grid">
+                <div class="loading-card"><div class="spinner"></div><p>ডাটা লোড হচ্ছে...</p></div>
+            </div>
+            <div class="actions-section">
+                <h3>⚙️ অপারেটর কন্ট্রোল প্যানেল</h3>
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="showAddStudentModal()">➕ নতুন শিক্ষার্থী যোগ</button>
+                    <button class="action-btn success" onclick="showSubjectManager()">📚 সাবজেক্ট ম্যানেজ</button>
+                    <button class="action-btn purple" onclick="exportData()">📥 ডাটা এক্সপোর্ট</button>
+                    <button class="action-btn primary" onclick="refreshOperatorData()">🔄 রিফ্রেশ</button>
+                </div>
+            </div>
+            <div class="class-grid" id="classGrid"></div>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE: STUDENT DASHBOARD ==================== -->
+    <div id="studentPage" class="hidden">
+        <div class="dashboard-header student-header">
+            <div>
+                <h2>📚 শিক্ষার্থী ড্যাশবোর্ড</h2>
+                <div class="user-info" id="studentUserInfo">লোড হচ্ছে...</div>
+            </div>
+            <button class="logout-btn" onclick="logout()">🚪 লগআউট</button>
+        </div>
+        <div class="student-container" id="studentDashboard">
+            <div class="loading-card"><div class="spinner"></div><p>ডাটা লোড হচ্ছে...</p></div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL: CLASS STUDENTS ==================== -->
+    <div id="classModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">📚 ক্লাসের শিক্ষার্থী</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="subject-section" id="subjectSection">
+                <h4>📚 এই ক্লাসের সাবজেক্টসমূহ:</h4>
+                <div id="subjectTags"></div>
+                <div class="add-subject-input">
+                    <input type="text" id="newSubjectInput" placeholder="নতুন সাবজেক্টের নাম (যেমন: বিজ্ঞান)">
+                    <button onclick="addSubject()">➕ যোগ</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <div id="classData"></div>
+            </div>
+            <div style="margin-top:20px; text-align:center;">
+                <button class="save-all-btn" onclick="showToast('সব ডাটা সেভ করতে প্রতিটি শিক্ষার্থী আলাদাভাবে সেভ করুন', 'info')">💾 সব ডাটা সেভ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL: ADD STUDENT ==================== -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content" style="max-width:500px;">
+            <div class="modal-header">
+                <h2>➕ নতুন শিক্ষার্থী যোগ</h2>
+                <button class="close-modal" onclick="document.getElementById('addStudentModal').style.display='none'">&times;</button>
+            </div>
+            <div style="padding:10px 0;">
+                <div class="form-group">
+                    <label>📚 ক্লাস</label>
+                    <select id="addStudentClass" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; font-family:'Baloo 2',cursive; font-size:16px;">
+                        <option value="প্লে">প্লে</option>
+                        <option value="নার্সারি">নার্সারি</option>
+                        <option value="স্টান্ডার্ড">স্টান্ডার্ড</option>
+                        <option value="ওয়ান">ওয়ান</option>
+                        <option value="টু">টু</option>
+                        <option value="থ্রি">থ্রি</option>
+                        <option value="ফোর">ফোর</option>
+                        <option value="ফাইভ">ফাইভ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>🔢 রোল নম্বর</label>
+                    <input type="number" id="addStudentRoll" placeholder="রোল নম্বর দিন" style="width:100%; padding:12px; border-radius:10px; border:2px solid #ddd; font-size:16px;">
+                </div>
+                <div class="form-group">
+                    <label>👤 শিক্ষার্থীর নাম</label>
+                    <input type="text" id="addStudentName" placeholder="শিক্ষার্থীর নাম দিন" style="width:100%; padding:12px; border-radius:10px; border:2px solid #ddd; font-size:16px;">
+                </div>
+                <div class="form-group">
+                    <label>🔒 পাসওয়ার্ড</label>
+                    <input type="text" id="addStudentPassword" placeholder="পাসওয়ার্ড দিন (ডিফল্ট: 1234)" value="1234" style="width:100%; padding:12px; border-radius:10px; border:2px solid #ddd; font-size:16px;">
+                </div>
+                <button class="login-btn" onclick="addNewStudent()" style="margin-top:10px; font-size:18px;">➕ শিক্ষার্থী যোগ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL: SUBJECT MANAGER ==================== -->
+    <div id="subjectManagerModal" class="modal">
+        <div class="modal-content" style="max-width:600px;">
+            <div class="modal-header">
+                <h2>📚 সাবজেক্ট ম্যানেজমেন্ট</h2>
+                <button class="close-modal" onclick="document.getElementById('subjectManagerModal').style.display='none'">&times;</button>
+            </div>
+            <div id="subjectManagerContent"></div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL: CHANGE PASSWORD ==================== -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content" style="max-width:450px;">
+            <div class="modal-header">
+                <h2>🔑 পাসওয়ার্ড পরিবর্তন</h2>
+                <button class="close-modal" onclick="document.getElementById('changePasswordModal').style.display='none'">&times;</button>
+            </div>
+            <div style="padding:10px 0;">
+                <div class="form-group">
+                    <label>📌 বর্তমান পাসওয়ার্ড</label>
+                    <input type="password" id="currentPassword" placeholder="বর্তমান পাসওয়ার্ড দিন" style="width:100%; padding:12px; border-radius:10px; border:2px solid #ddd; font-size:16px;">
+                </div>
+                <div class="form-group">
+                    <label>🆕 নতুন পাসওয়ার্ড</label>
+                    <input type="password" id="newPassword" placeholder="নতুন পাসওয়ার্ড দিন" style="width:100%; padding:12px; border-radius:10px; border:2px solid #ddd; font-size:16px;">
+                </div>
+                <div class="form-group">
+                    <label>✅ নতুন পাসওয়ার্ড (আবার)</label>
+                    <input type="password" id="confirmPassword" placeholder="আবার নতুন পাসওয়ার্ড দিন" style="width:100%; padding:12px; border-radius:10px; border:2px solid #ddd; font-size:16px;">
+                </div>
+                <button class="login-btn" onclick="changePassword()" style="margin-top:10px; font-size:18px;">✅ পাসওয়ার্ড পরিবর্তন করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== CONFIGURATION ====================
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzn-gYLEZNt1J9DMb8iHKvF3lue1uIvXSS2b4NlFHe4KT8sR0dOu9LT0MYE3yA1abjvnA/exec';
+        
+        const CLASSES = ['প্লে', 'নার্সারি', 'স্টান্ডার্ড', 'ওয়ান', 'টু', 'থ্রি', 'ফোর', 'ফাইভ'];
+        
+        const DEFAULT_SUBJECTS = {
+            'প্লে': ['বাংলা', 'ইংরেজি', 'গণিত'],
+            'নার্সারি': ['বাংলা', 'ইংরেজি', 'গণিত', 'বিজ্ঞান'],
+            'স্টান্ডার্ড': ['বাংলা', 'ইংরেজি', 'গণিত', 'বিজ্ঞান', 'সমাজ'],
+            'ওয়ান': ['বাংলা', 'ইংরেজি', 'গণিত', 'বিজ্ঞান', 'সমাজ', 'ধর্ম'],
+            'টু': ['বাংলা', 'ইংরেজি', 'গণিত', 'বিজ্ঞান', 'সমাজ', 'ধর্ম'],
+            'থ্রি': ['বাংলা', 'ইংরেজি', 'গণিত', 'বিজ্ঞান', 'সমাজ', 'ধর্ম'],
+            'ফোর': ['বাংলা', 'ইংরেজি', 'গণিত', 'বিজ্ঞান', 'সমাজ', 'ধর্ম'],
+            'ফাইভ': ['বাংলা', 'ইংরেজি', 'গণিত', 'বিজ্ঞান', 'সমাজ', 'ধর্ম']
+        };
+
+        let currentUser = null;
+        let currentClass = '';
+        let currentSubjects = [];
+
+        // ==================== TOAST ====================
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.style.display = 'block';
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        // ==================== TOGGLE PASSWORD ====================
+        function togglePassword() {
+            const input = document.getElementById('loginPassword');
+            const btn = document.querySelector('.toggle-password');
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁️';
+            }
+        }
+
+        // ==================== LOGIN ====================
+        async function login() {
+            const userId = document.getElementById('loginUserId').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const errorMsg = document.getElementById('loginError');
+            const loginBtn = document.getElementById('loginBtn');
+            const spinner = document.getElementById('loginSpinner');
+
+            errorMsg.textContent = '';
+            errorMsg.className = 'error-msg';
+
+            if (!userId || !password) {
+                errorMsg.textContent = '⚠️ দয়া করে আইডি ও পাসওয়ার্ড দিন!';
+                return;
+            }
+
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = '⏳ লগইন হচ্ছে...';
+            spinner.classList.add('active');
+
+            try {
+                const response = await fetch(
+                    `${API_URL}?action=login&userId=${encodeURIComponent(userId)}&password=${encodeURIComponent(password)}`,
+                    { method: 'GET', headers: { 'Accept': 'application/json' } }
+                );
+
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const data = await response.json();
+
+                if (data.success) {
+                    currentUser = data.userData;
+                    localStorage.setItem('userData', JSON.stringify(currentUser));
+
+                    errorMsg.textContent = '🎉 লগইন সফল! রিডাইরেক্ট হচ্ছে...';
+                    errorMsg.className = 'error-msg success';
+
+                    setTimeout(() => {
+                        if (currentUser.role === 'admin') {
+                            document.getElementById('loginPage').classList.add('hidden');
+                            document.getElementById('adminPage').classList.remove('hidden');
+                            document.getElementById('adminUserInfo').textContent = `👤 ${currentUser.name}`;
+                            loadAdminSummary();
+                        } else if (currentUser.role === 'operator') {
+                            document.getElementById('loginPage').classList.add('hidden');
+                            document.getElementById('operatorPage').classList.remove('hidden');
+                            document.getElementById('operatorUserInfo').textContent = `👤 ${currentUser.name}`;
+                            loadOperatorSummary();
+                            loadClasses();
+                        } else {
+                            document.getElementById('loginPage').classList.add('hidden');
+                            document.getElementById('studentPage').classList.remove('hidden');
+                            document.getElementById('studentUserInfo').textContent = `👤 ${currentUser.name} (${currentUser.className})`;
+                            loadStudentData();
+                        }
+                    }, 800);
+
+                } else {
+                    errorMsg.textContent = '❌ ' + (data.message || 'লগইন ব্যর্থ!');
+                }
+
+            } catch (error) {
+                console.error('Login Error:', error);
+                errorMsg.textContent = '⚠️ সার্ভার সংযোগে সমস্যা! পরবর্তীতে আবার চেষ্টা করুন।';
+                errorMsg.className = 'error-msg';
+            } finally {
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '🚀 লগইন করুন';
+                spinner.classList.remove('active');
+            }
+        }
+
+        // ==================== LOGOUT ====================
+        function logout() {
+            localStorage.clear();
+            currentUser = null;
+            document.getElementById('loginPage').classList.remove('hidden');
+            document.getElementById('adminPage').classList.add('hidden');
+            document.getElementById('operatorPage').classList.add('hidden');
+            document.getElementById('studentPage').classList.add('hidden');
+            document.getElementById('loginUserId').value = '';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginError').textContent = '';
+            showToast('🚪 লগআউট করা হয়েছে', 'info');
+        }
+
+        // ==================== CHECK SESSION ====================
+        function checkSession() {
+            const saved = localStorage.getItem('userData');
+            if (saved) {
+                try {
+                    currentUser = JSON.parse(saved);
+                    if (currentUser.role === 'admin') {
+                        document.getElementById('loginPage').classList.add('hidden');
+                        document.getElementById('adminPage').classList.remove('hidden');
+                        document.getElementById('adminUserInfo').textContent = `👤 ${currentUser.name}`;
+                        loadAdminSummary();
+                    } else if (currentUser.role === 'operator') {
+                        document.getElementById('loginPage').classList.add('hidden');
+                        document.getElementById('operatorPage').classList.remove('hidden');
+                        document.getElementById('operatorUserInfo').textContent = `👤 ${currentUser.name}`;
+                        loadOperatorSummary();
+                        loadClasses();
+                    } else if (currentUser.role === 'student') {
+                        document.getElementById('loginPage').classList.add('hidden');
+                        document.getElementById('studentPage').classList.remove('hidden');
+                        document.getElementById('studentUserInfo').textContent = `👤 ${currentUser.name} (${currentUser.className})`;
+                        loadStudentData();
+                    }
+                    return true;
+                } catch (e) { localStorage.clear(); }
+            }
+            return false;
+        }
+
+        // ==================== CHANGE PASSWORD ====================
+        function showChangePassword() {
+            document.getElementById('changePasswordModal').style.display = 'block';
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        }
+
+        async function changePassword() {
+            const currentPwd = document.getElementById('currentPassword').value.trim();
+            const newPwd = document.getElementById('newPassword').value.trim();
+            const confirmPwd = document.getElementById('confirmPassword').value.trim();
+
+            if (!currentPwd || !newPwd || !confirmPwd) {
+                showToast('⚠️ সব ফিল্ড পূরণ করুন!', 'error');
+                return;
+            }
+
+            if (newPwd !== confirmPwd) {
+                showToast('⚠️ নতুন পাসওয়ার্ড মিলছে না!', 'error');
+                return;
+            }
+
+            if (newPwd.length < 4) {
+                showToast('⚠️ পাসওয়ার্ড কমপক্ষে ৪ অক্ষরের হতে হবে!', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'changePassword',
+                        userId: currentUser.id,
+                        currentPassword: currentPwd,
+                        newPassword: newPwd,
+                        role: currentUser.role
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast('✅ পাসওয়ার্ড সফলভাবে পরিবর্তন হয়েছে!', 'success');
+                    document.getElementById('changePasswordModal').style.display = 'none';
+                    currentUser.password = newPwd;
+                    localStorage.setItem('userData', JSON.stringify(currentUser));
+                } else {
+                    showToast('❌ ' + (data.message || 'পাসওয়ার্ড পরিবর্তন ব্যর্থ!'), 'error');
+                }
+            } catch (error) {
+                showToast('সার্ভার সংযোগে সমস্যা: ' + error.message, 'error');
+            }
+        }
+
+        // ==================== ADMIN: LOAD SUMMARY ====================
+        async function loadAdminSummary() {
+            const grid = document.getElementById('summaryGrid');
+            try {
+                const response = await fetch(`${API_URL}?action=getSummary`);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+
+                if (data.success && data.summary && data.summary.length > 0) {
+                    grid.innerHTML = '';
+                    data.summary.forEach(item => {
+                        grid.innerHTML += `
+                            <div class="card">
+                                <h3>📚 ${item.className}</h3>
+                                <div class="stat-row"><span class="stat-label">👨‍🎓 মোট শিক্ষার্থী</span><span class="stat-value highlight">${item.totalStudents}</span></div>
+                                <div class="stat-row"><span class="stat-label">📅 গড় উপস্থিতি</span><span class="stat-value">${item.avgAttendance} দিন</span></div>
+                                <div class="stat-row"><span class="stat-label">🎯 পাসের হার</span><span class="stat-value">${item.passRate}%</span></div>
+                                <div class="stat-row"><span class="stat-label">📊 গড় নম্বর</span><span class="stat-value">${item.avgMarks}</span></div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    grid.innerHTML = `<div class="empty-state"><div class="icon">📭</div><p>কোন ডাটা পাওয়া যায়নি</p></div>`;
+                }
+            } catch (error) {
+                grid.innerHTML = `<div class="empty-state"><div class="icon">⚠️</div><p>সার্ভার সংযোগে সমস্যা!</p></div>`;
+                console.error(error);
+            }
+        }
+
+        function refreshAdminData() { loadAdminSummary(); showToast('🔄 ডাটা রিফ্রেশ করা হয়েছে', 'info'); }
+
+        // ==================== OPERATOR: LOAD SUMMARY ====================
+        async function loadOperatorSummary() {
+            const grid = document.getElementById('operatorSummaryGrid');
+            try {
+                const response = await fetch(`${API_URL}?action=getSummary`);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+
+                if (data.success && data.summary && data.summary.length > 0) {
+                    grid.innerHTML = '';
+                    data.summary.forEach(item => {
+                        grid.innerHTML += `
+                            <div class="card">
+                                <h3>📚 ${item.className}</h3>
+                                <div class="stat-row"><span class="stat-label">👨‍🎓 মোট শিক্ষার্থী</span><span class="stat-value highlight">${item.totalStudents}</span></div>
+                                <div class="stat-row"><span class="stat-label">📅 গড় উপস্থিতি</span><span class="stat-value">${item.avgAttendance} দিন</span></div>
+                                <div class="stat-row"><span class="stat-label">🎯 পাসের হার</span><span class="stat-value">${item.passRate}%</span></div>
+                                <div class="stat-row"><span class="stat-label">📊 গড় নম্বর</span><span class="stat-value">${item.avgMarks}</span></div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    grid.innerHTML = `<div class="empty-state"><div class="icon">📭</div><p>কোন ডাটা পাওয়া যায়নি</p></div>`;
+                }
+            } catch (error) {
+                grid.innerHTML = `<div class="empty-state"><div class="icon">⚠️</div><p>সার্ভার সংযোগে সমস্যা!</p></div>`;
+                console.error(error);
+            }
+        }
+
+        function refreshOperatorData() { loadOperatorSummary(); showToast('🔄 ডাটা রিফ্রেশ করা হয়েছে', 'info'); }
+
+        // ==================== ADD STUDENT ====================
+        function showAddStudentModal() {
+            document.getElementById('addStudentModal').style.display = 'block';
+        }
+
+        async function addNewStudent() {
+            const className = document.getElementById('addStudentClass').value;
+            const roll = document.getElementById('addStudentRoll').value;
+            const name = document.getElementById('addStudentName').value.trim();
+            const password = document.getElementById('addStudentPassword').value.trim() || '1234';
+
+            if (!roll || !name) {
+                showToast('⚠️ রোল ও নাম অবশ্যই দিতে হবে!', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'addStudent',
+                        className: className,
+                        roll: parseInt(roll),
+                        name: name,
+                        password: password,
+                        janAttendance: 0,
+                        subjects: DEFAULT_SUBJECTS[className] || ['বাংলা', 'ইংরেজি', 'গণিত']
+                    })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    showToast(`✅ ${name} (রোল: ${roll}) ${className} ক্লাসে যোগ হয়েছে!`, 'success');
+                    document.getElementById('addStudentModal').style.display = 'none';
+                    document.getElementById('addStudentRoll').value = '';
+                    document.getElementById('addStudentName').value = '';
+                    if (currentUser.role === 'admin') {
+                        loadAdminSummary();
+                    } else {
+                        loadOperatorSummary();
+                        loadClasses();
+                    }
+                } else {
+                    showToast('❌ ' + (data.message || 'যোগ করতে সমস্যা'), 'error');
+                }
+            } catch (error) {
+                showToast('সার্ভার সংযোগে সমস্যা: ' + error.message, 'error');
+            }
+        }
+
+        // ==================== SUBJECT MANAGEMENT ====================
+        function showSubjectManager() {
+            const modal = document.getElementById('subjectManagerModal');
+            const content = document.getElementById('subjectManagerContent');
+            
+            let html = '';
+            for (const cls of CLASSES) {
+                const subjects = DEFAULT_SUBJECTS[cls] || ['বাংলা', 'ইংরেজি', 'গণিত'];
+                html += `
+                    <div style="background:#f8f9fa; padding:15px; border-radius:10px; margin-bottom:15px;">
+                        <h4>📚 ${cls}</h4>
+                        <div id="subjects_${cls}">
+                            ${subjects.map(s => `<span class="subject-tag">${s} <span class="remove-subject" onclick="removeSubject('${cls}','${s}')">✕</span></span>`).join('')}
+                        </div>
+                        <div class="add-subject-input" style="margin-top:10px;">
+                            <input type="text" id="subjectInput_${cls}" placeholder="নতুন সাবজেক্ট" 
+                                   onkeypress="if(event.key==='Enter') addSubjectToClass('${cls}')">
+                            <button onclick="addSubjectToClass('${cls}')">➕ যোগ</button>
+                        </div>
+                    </div>
+                `;
+            }
+            content.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        function addSubjectToClass(className) {
+            const input = document.getElementById(`subjectInput_${className}`);
+            const subject = input.value.trim();
+            if (!subject) return;
+
+            if (!DEFAULT_SUBJECTS[className]) DEFAULT_SUBJECTS[className] = [];
+            if (DEFAULT_SUBJECTS[className].includes(subject)) {
+                showToast('⚠️ এই সাবজেক্ট ইতিমধ্যে আছে!', 'error');
+                return;
+            }
+            DEFAULT_SUBJECTS[className].push(subject);
+            input.value = '';
+            showToast(`✅ "${subject}" ${className} ক্লাসে যোগ হয়েছে`, 'success');
+            showSubjectManager();
+        }
+
+        function removeSubject(className, subject) {
+            if (!confirm(`"${subject}" সাবজেক্টটি ${className} ক্লাস থেকে ডিলিট করতে চান?`)) return;
+            DEFAULT_SUBJECTS[className] = DEFAULT_SUBJECTS[className].filter(s => s !== subject);
+            showToast(`✅ "${subject}" ডিলিট করা হয়েছে`, 'info');
+            showSubjectManager();
+        }
+
+        // ==================== OPERATOR: LOAD CLASSES ====================
+        async function loadClasses() {
+            const grid = document.getElementById('classGrid');
+            grid.innerHTML = '<div class="loading-card" style="grid-column:1/-1;"><div class="spinner"></div><p>ক্লাস লোড হচ্ছে...</p></div>';
+
+            for (const className of CLASSES) {
+                try {
+                    const response = await fetch(`${API_URL}?action=getClassStudents&className=${encodeURIComponent(className)}`);
+                    const data = await response.json();
+                    const count = data.students ? data.students.length : 0;
+                    
+                    const card = document.createElement('div');
+                    card.className = 'class-card';
+                    card.innerHTML = `
+                        <div class="icon">📖</div>
+                        <div class="name">${className}</div>
+                        <div class="count">👨‍🎓 ${count} জন</div>
+                    `;
+                    card.onclick = () => openClass(className);
+                    grid.appendChild(card);
+                } catch (error) {
+                    console.error('Error loading class:', className, error);
+                }
+            }
+        }
+
+        // ==================== OPEN CLASS ====================
+        async function openClass(className) {
+            currentClass = className;
+            document.getElementById('modalTitle').textContent = `📚 ${className} ক্লাসের শিক্ষার্থী`;
+
+            currentSubjects = DEFAULT_SUBJECTS[className] || ['বাংলা', 'ইংরেজি', 'গণিত'];
+            updateSubjectTags();
+
+            try {
+                const response = await fetch(`${API_URL}?action=getClassStudents&className=${encodeURIComponent(className)}`);
+                const data = await response.json();
+                const students = data.students || [];
+
+                let html = `
+                    <table class="student-table">
+                        <thead>
+                            <tr>
+                                <th>রোল</th>
+                                <th>নাম</th>
+                                <th>জানুয়ারি<br>উপস্থিতি</th>
+                                ${currentSubjects.map(s => `<th>${s}</th>`).join('')}
+                                <th>ছবি</th>
+                                <th>অ্যাকশন</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                if (students.length === 0) {
+                    html += `<tr><td colspan="${currentSubjects.length + 5}" style="text-align:center; padding:30px;">এই ক্লাসে কোনো শিক্ষার্থী নেই</td></tr>`;
+                } else {
+                    for (const student of students) {
+                        let photoHtml = student.photo ? `<img src="${student.photo}" class="photo-preview">` : '';
+                        
+                        let subjectInputs = '';
+                        for (const subject of currentSubjects) {
+                            const markKey = `mark_${subject}_${student.roll}`;
+                            const value = student[subject] || 0;
+                            subjectInputs += `<td><input type="number" id="${markKey}" value="${value}" min="0" max="100" style="width:60px"></td>`;
+                        }
+                        
+                        html += `
+                            <tr id="row_${student.roll}">
+                                <td>${student.roll}</td>
+                                <td>${student.name}</td>
+                                <td><input type="number" id="att_${student.roll}" value="${student.janAttendance || 0}" min="0" max="22" style="width:60px"></td>
+                                ${subjectInputs}
+                                <td>
+                                    <div id="preview_${student.roll}">${photoHtml}</div>
+                                    <input type="file" id="photo_${student.roll}" accept="image/*" onchange="previewPhoto('${student.roll}', this)" class="photo-input">
+                                </td>
+                                <td>
+                                    <button class="action-btn-small save" onclick="saveStudent('${className}', '${student.roll}')">💾 সেভ</button>
+                                    <button class="action-btn-small edit" onclick="editStudent('${className}', '${student.roll}')">✏️ এডিট</button>
+                                    <button class="action-btn-small delete" onclick="deleteStudent('${className}', '${student.roll}')">🗑️ ডিলিট</button>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                }
+
+                html += `</tbody></table>`;
+                document.getElementById('classData').innerHTML = html;
+                document.getElementById('classModal').style.display = 'block';
+                
+                // Scroll to top of modal
+                document.getElementById('classModal').scrollTop = 0;
+                
+            } catch (error) {
+                showToast('ডাটা লোড করতে সমস্যা: ' + error.message, 'error');
+            }
+        }
+
+        // ==================== SUBJECT TAGS UPDATE ====================
+        function updateSubjectTags() {
+            const container = document.getElementById('subjectTags');
+            container.innerHTML = currentSubjects.map(s => 
+                `<span class="subject-tag">${s} <span class="remove-subject" onclick="removeSubjectFromClass('${s}')">✕</span></span>`
+            ).join('');
+        }
+
+        function addSubject() {
+            const input = document.getElementById('newSubjectInput');
+            const subject = input.value.trim();
+            if (!subject) return;
+            if (currentSubjects.includes(subject)) {
+                showToast('⚠️ এই সাবজেক্ট ইতিমধ্যে আছে!', 'error');
+                return;
+            }
+            currentSubjects.push(subject);
+            input.value = '';
+            updateSubjectTags();
+            if (!DEFAULT_SUBJECTS[currentClass]) DEFAULT_SUBJECTS[currentClass] = [];
+            DEFAULT_SUBJECTS[currentClass].push(subject);
+            showToast(`✅ "${subject}" যোগ করা হয়েছে`, 'success');
+            openClass(currentClass);
+        }
+
+        function removeSubjectFromClass(subject) {
+            if (!confirm(`"${subject}" সাবজেক্টটি ${currentClass} ক্লাস থেকে ডিলিট করতে চান?`)) return;
+            currentSubjects = currentSubjects.filter(s => s !== subject);
+            DEFAULT_SUBJECTS[currentClass] = currentSubjects;
+            updateSubjectTags();
+            showToast(`✅ "${subject}" ডিলিট করা হয়েছে`, 'info');
+            openClass(currentClass);
+        }
+
+        // ==================== PHOTO PREVIEW ====================
+        function previewPhoto(roll, input) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                if (file.size > 50000) {
+                    showToast('❌ ছবির সাইজ 50KB এর কম হতে হবে!', 'error');
+                    input.value = '';
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(`preview_${roll}`).innerHTML = `<img src="${e.target.result}" class="photo-preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // ==================== SAVE STUDENT ====================
+        async function saveStudent(className, roll) {
+            const attendance = document.getElementById(`att_${roll}`).value;
+            
+            const marks = {};
+            for (const subject of currentSubjects) {
+                const markKey = `mark_${subject}_${roll}`;
+                const input = document.getElementById(markKey);
+                if (input) {
+                    marks[subject] = parseInt(input.value) || 0;
+                }
+            }
+            
+            const photoFile = document.getElementById(`photo_${roll}`).files[0];
+            let photoBase64 = null;
+            if (photoFile) {
+                photoBase64 = await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.readAsDataURL(photoFile);
+                });
+            }
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'updateStudent',
+                        className: className,
+                        roll: parseInt(roll),
+                        janAttendance: parseInt(attendance) || 0,
+                        marks: marks,
+                        subjects: currentSubjects,
+                        photo: photoBase64
+                    })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    showToast(`✅ ${roll} নং শিক্ষার্থীর ডাটা সেভ হয়েছে!`, 'success');
+                    document.getElementById(`photo_${roll}`).value = '';
+                } else {
+                    showToast('❌ ' + (data.message || 'সেভ করতে সমস্যা'), 'error');
+                }
+            } catch (error) {
+                showToast('সেভ করতে সমস্যা: ' + error.message, 'error');
+            }
+        }
+
+        // ==================== EDIT STUDENT ====================
+        function editStudent(className, roll) {
+            const row = document.getElementById(`row_${roll}`);
+            if (!row) return;
+            
+            const inputs = row.querySelectorAll('input');
+            let allDisabled = true;
+            inputs.forEach(input => {
+                if (!input.disabled) allDisabled = false;
+            });
+            
+            inputs.forEach(input => {
+                if (allDisabled) {
+                    input.disabled = false;
+                    input.style.background = 'white';
+                } else {
+                    input.disabled = true;
+                    input.style.background = '#f0f0f0';
+                }
+            });
+            
+            showToast(allDisabled ? `✏️ ${roll} নং শিক্ষার্থী এডিট মোডে` : `🔒 ${roll} নং শিক্ষার্থী লক করা হয়েছে`, 'info');
+        }
+
+        // ==================== DELETE STUDENT ====================
+        async function deleteStudent(className, roll) {
+            if (!confirm(`⚠️ ${roll} নং শিক্ষার্থীকে ডিলিট করতে চান? এটি স্থায়ীভাবে মুছে ফেলা হবে!`)) return;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'deleteStudent',
+                        className: className,
+                        roll: parseInt(roll)
+                    })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    showToast(`✅ ${roll} নং শিক্ষার্থী ডিলিট করা হয়েছে!`, 'success');
+                    openClass(className);
+                    if (currentUser.role === 'admin') {
+                        loadAdminSummary();
+                    } else {
+                        loadOperatorSummary();
+                        loadClasses();
+                    }
+                } else {
+                    showToast('❌ ' + (data.message || 'ডিলিট করতে সমস্যা'), 'error');
+                }
+            } catch (error) {
+                showToast('সার্ভার সংযোগে সমস্যা: ' + error.message, 'error');
+            }
+        }
+
+        // ==================== ADMIN ONLY: GENERATE REPORT ====================
+        function generateReport() { 
+            if (currentUser.role !== 'admin') {
+                showToast('⚠️ শুধুমাত্র এডমিন রিপোর্ট জেনারেট করতে পারেন!', 'error');
+                return;
+            }
+            showToast('📄 রিপোর্ট জেনারেট হচ্ছে...', 'info'); 
+            setTimeout(() => showToast('✅ রিপোর্ট তৈরি হয়েছে!', 'success'), 2000); 
+        }
+
+        // ==================== EXPORT DATA ====================
+        function exportData() { 
+            showToast('📥 ডাটা এক্সপোর্ট শুরু হয়েছে', 'info'); 
+        }
+
+        // ==================== STUDENT: LOAD DATA ====================
+        async function loadStudentData() {
+            const container = document.getElementById('studentDashboard');
+            try {
+                const response = await fetch(`${API_URL}?action=getStudentData&className=${encodeURIComponent(currentUser.className)}&roll=${currentUser.id}`);
+                const data = await response.json();
+
+                if (data.success && data.student) {
+                    const s = data.student;
+                    const percent = (s.janAttendance / 22) * 100;
+
+                    let gradeClass = 'grade-F';
+                    if (s.grade === 'A+') gradeClass = 'grade-Aplus';
+                    else if (s.grade === 'A') gradeClass = 'grade-A';
+                    else if (s.grade === 'B') gradeClass = 'grade-B';
+                    else if (s.grade === 'C') gradeClass = 'grade-C';
+
+                    let subjectHtml = '';
+                    if (s.marks) {
+                        for (const [subject, mark] of Object.entries(s.marks)) {
+                            subjectHtml += `
+                                <div class="result-item">
+                                    <span class="subject">📖 ${subject}</span>
+                                    <span class="marks">${mark} / ১০০</span>
+                                </div>
+                            `;
+                        }
+                    }
+
+                    container.innerHTML = `
+                        <div class="info-card">
+                            <div class="student-name">👨‍🎓 ${s.name}</div>
+                            <div class="student-details">📖 ক্লাস: ${s.className} | 🔢 রোল: ${s.roll}</div>
+                        </div>
+                        <div class="info-card">
+                            <h3>📅 জানুয়ারি ২০২৬ - উপস্থিতি</h3>
+                            <div class="attendance-big">${s.janAttendance} / ২২ দিন</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:${percent}%">${Math.round(percent)}%</div></div>
+                            <p style="text-align:center; margin-top:10px;">🎯 উপস্থিতির হার ${Math.round(percent)}%</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>📊 বার্ষিক পরীক্ষার ফলাফল ২০২৬</h3>
+                            ${subjectHtml}
+                            <div class="result-item" style="background:#667eea20">
+                                <span class="subject">📊 মোট নম্বর</span>
+                                <span class="marks" style="font-size:22px;">${s.totalMarks} / ${Object.keys(s.marks || {}).length * 100}</span>
+                            </div>
+                            <div class="grade-box ${gradeClass}">🎓 গ্রেড: ${s.grade}</div>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `<div class="info-card"><p style="text-align:center;">❌ আপনার ডাটা পাওয়া যায়নি</p></div>`;
+                }
+            } catch (error) {
+                container.innerHTML = `<div class="info-card"><p style="text-align:center;">⚠️ সার্ভার সংযোগে সমস্যা!</p></div>`;
+                console.error(error);
+            }
+        }
+
+        // ==================== MODAL CONTROLS ====================
+        function closeModal() {
+            document.getElementById('classModal').style.display = 'none';
+        }
+
+        // ==================== INIT ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkSession()) {
+                document.getElementById('loginPage').classList.remove('hidden');
+                document.getElementById('loginUserId').focus();
+            }
+        });
+    </script>
+</body>
+</html>
